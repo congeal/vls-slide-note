@@ -13,353 +13,353 @@
 <p>안녕하세요. S.LSI 사업부 기반설계실 김응섭입니다.<br />
 “Verilog Coding, Redefined”를 모토로, Verilog Language Server 개발에 대해 제안 발표 드리겠습니다.</p>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-marpit-fragments="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="2" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-theme="gaia" data-marpit-pagination="2" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>Outline (1/2)</h2>
 <ul>
-<li data-marpit-fragment="1">오늘 드릴 말씀은 Digital logic design에 관련된 것입니다</li>
-<li data-marpit-fragment="2">Digital logic desgin은 Verilog라는 프로그래밍 언어를 통해 코딩을 함으로써 이루어집니다.</li>
-<li data-marpit-fragment="3">Verilog 코딩 환경이 원시적 -&gt; 네이게이션이 없던 시절에 지도책… -&gt; 열악</li>
-<li data-marpit-fragment="4">DS 부문 3개 사업부에 Verilog 사용자수 조사 -&gt; 3천 여명</li>
-<li data-marpit-fragment="5">원시적인 코딩 환경 -&gt; 매일 시간 낭비</li>
+<li>오늘 드릴 말씀은 Digital logic design에 관련된 것입니다</li>
+<li>Digital logic desgin은 Verilog라는 프로그래밍 언어를 통해 코딩을 함으로써 이루어집니다.</li>
+<li>Verilog 코딩 환경이 원시적 -&gt; 네이게이션이 없던 시절에 지도책… -&gt; 열악</li>
+<li>DS 부문 3개 사업부에 Verilog 사용자수 조사 -&gt; 3천 여명</li>
+<li>원시적인 코딩 환경 -&gt; 매일 시간 낭비</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-marpit-fragments="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="3" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-paginate="true" data-theme="gaia" data-marpit-pagination="3" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>Outline (2/2)</h2>
 <ul>
-<li data-marpit-fragment="1">이 문제를 해결하고자 Verilog Language Server를 개발하여,</li>
-<li data-marpit-fragment="2">HW 코딩 환경에 언어 분석 서비스를 제공해서</li>
-<li data-marpit-fragment="3">HW 코딩 환경도 현대적으로 바꾸고자 이 과제를 제안</li>
-<li data-marpit-fragment="4">이 프로젝트가 채택되어 HW 코딩 환경 개선</li>
-<li data-marpit-fragment="5">-&gt; 개발 비용을 줄여서 -&gt; 생산성을 높일 수 있을 것으로 기대</li>
+<li>이 문제를 해결하고자 Verilog Language Server를 개발하여,</li>
+<li>HW 코딩 환경에 언어 분석 서비스를 제공해서</li>
+<li>HW 코딩 환경도 현대적으로 바꾸고자 이 과제를 제안</li>
+<li>이 프로젝트가 채택되어 HW 코딩 환경 개선</li>
+<li>-&gt; 개발 비용을 줄여서 -&gt; 생산성을 높일 수 있을 것으로 기대</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-marpit-fragments="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="4" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="4" data-paginate="true" data-theme="gaia" data-marpit-pagination="4" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>배경: Digital hardware logic 설계</h2>
 <ul>
-<li data-marpit-fragment="1">그럼, 조금 더 자세히 문제를 살펴 보겠습니다.</li>
-<li data-marpit-fragment="2">HW digital logic 설계는 Verilog coding을 통해 이루어지는데,</li>
-<li data-marpit-fragment="3">코딩이라는 것이 SW 개발하는 것에부터 시작했기 때문에</li>
-<li data-marpit-fragment="4">HW 코딩도 “언어와 타겟이 다르다”는 점을 제외하면</li>
-<li data-marpit-fragment="5">SW 코딩과 다를 것이 없습니다.</li>
+<li>그럼, 조금 더 자세히 문제를 살펴 보겠습니다.</li>
+<li>HW digital logic 설계는 Verilog coding을 통해 이루어지는데,</li>
+<li>코딩이라는 것이 SW 개발하는 것에부터 시작했기 때문에</li>
+<li>HW 코딩도 “언어와 타겟이 다르다”는 점을 제외하면</li>
+<li>SW 코딩과 다를 것이 없습니다.</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-marpit-fragments="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="5" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="5" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>배경: 하드웨어 개발툴의 낮은 생산성 (1/2)</h2>
 <ul>
-<li data-marpit-fragment="1">그런데, HW 코딩 환경을 SW 코딩 환경을 비교 -&gt; 현격한 차이</li>
-<li data-marpit-fragment="2">HW coding 환경에 사용되는 텍스트 에디터 -&gt; Verilog 문법 이해하지 못함
+<li>그런데, HW 코딩 환경을 SW 코딩 환경을 비교 -&gt; 현격한 차이</li>
+<li>HW coding 환경에 사용되는 텍스트 에디터 -&gt; Verilog 문법 이해하지 못함
 <ul>
-<li data-marpit-fragment="3">사람이 코드의 모든 것을 읽고 진행해야 하기 떄문에,</li>
-<li data-marpit-fragment="4">반복적으로 무의미한 일을 해야 함</li>
-<li data-marpit-fragment="5">생산성이 낮을 수밖에 없음</li>
+<li>사람이 코드의 모든 것을 읽고 진행해야 하기 떄문에,</li>
+<li>반복적으로 무의미한 일을 해야 함</li>
+<li>생산성이 낮을 수밖에 없음</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-marpit-fragments="3" data-paginate="true" data-theme="gaia" data-marpit-pagination="6" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-paginate="true" data-theme="gaia" data-marpit-pagination="6" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>배경: 하드웨어 개발툴의 낮은 생산성 (2/2)</h2>
 <ul>
-<li data-marpit-fragment="1">현대적인 SW 코딩 환경에서 사용하는 텍스트 에디터는 -&gt; SW 프로그래밍 언어 문법을 이해
+<li>현대적인 SW 코딩 환경에서 사용하는 텍스트 에디터는 -&gt; SW 프로그래밍 언어 문법을 이해
 <ul>
-<li data-marpit-fragment="2">개발자가 코딩할 때 각종 정보를 실시간으로 표시</li>
-<li data-marpit-fragment="3">운전자가 차를 몰 때 네비게이션의 길 안내를 받는 것과 같다</li>
+<li>개발자가 코딩할 때 각종 정보를 실시간으로 표시</li>
+<li>운전자가 차를 몰 때 네비게이션의 길 안내를 받는 것과 같다</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-marpit-fragments="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="7" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-paginate="true" data-theme="gaia" data-marpit-pagination="7" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>문제: 열악한 HW 코딩 환경 (1/4)</h2>
 <ul>
-<li data-marpit-fragment="1">구체적으로 어떤 문제가 있는지 살펴 보겠습니다.
+<li>구체적으로 어떤 문제가 있는지 살펴 보겠습니다.
 <ul>
-<li data-marpit-fragment="2">여러 가지 문제가 있지만 크게 3가지 종류로 묶어 봤습니다.</li>
+<li>여러 가지 문제가 있지만 크게 3가지 종류로 묶어 봤습니다.</li>
 </ul>
 </li>
-<li data-marpit-fragment="3">첫 번째는 코드를 읽는데 어려움이 있습니다.
+<li>첫 번째는 코드를 읽는데 어려움이 있습니다.
 <ul>
-<li data-marpit-fragment="4">Verilog code에서 사용되는 모듈/심볼들은 여러 파일에 흩어져 정의되어 있음</li>
-<li data-marpit-fragment="5">코드를 읽을 때 심볼의 정의를 알아야 할 때가 많음</li>
+<li>Verilog code에서 사용되는 모듈/심볼들은 여러 파일에 흩어져 정의되어 있음</li>
+<li>코드를 읽을 때 심볼의 정의를 알아야 할 때가 많음</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-marpit-fragments="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="8" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-theme="gaia" data-marpit-pagination="8" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>문제: 열악한 HW 코딩 환경 (2/4)</h2>
 <ul>
-<li data-marpit-fragment="1">심볼 정의 찾기 위해 -&gt;텍스트 에디터 밖으로 나가야 함
+<li>심볼 정의 찾기 위해 -&gt;텍스트 에디터 밖으로 나가야 함
 <ul>
-<li data-marpit-fragment="2">-&gt; 심볼이 어느 파일에 있는지 찾아야 함</li>
-<li data-marpit-fragment="3">-&gt; 찾은 파일을 열어서 확인</li>
-<li data-marpit-fragment="4">-&gt; 읽던 코드로 돌아오는 일을 반복</li>
+<li>-&gt; 심볼이 어느 파일에 있는지 찾아야 함</li>
+<li>-&gt; 찾은 파일을 열어서 확인</li>
+<li>-&gt; 읽던 코드로 돌아오는 일을 반복</li>
 </ul>
 </li>
-<li data-marpit-fragment="5">파일이 많은 경우에는 시간도 걸림 -&gt; 눈과 손이 바쁘게 움직여야 함</li>
+<li>파일이 많은 경우에는 시간도 걸림 -&gt; 눈과 손이 바쁘게 움직여야 함</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-marpit-fragments="4" data-paginate="true" data-theme="gaia" data-marpit-pagination="9" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-theme="gaia" data-marpit-pagination="9" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>문제: 열악한 HW 코딩 환경 (3/4)</h2>
 <ul>
-<li data-marpit-fragment="1">두 번째는 코드를 작성하는데 불편함이 있습니다.</li>
-<li data-marpit-fragment="2">코드를 작성할 때, 다른 파일에 정의된 모듈의 포트가 어떻게 정의되어 있나?</li>
-<li data-marpit-fragment="3">에러 없이 코드 작성을 위해, 모듈 정의를 계속해서 참조, 정확하게 입력 필요</li>
-<li data-marpit-fragment="4">이 작업도 수동 반복 작업 -&gt; 불편, 실수</li>
+<li>두 번째는 코드를 작성하는데 불편함이 있습니다.</li>
+<li>코드를 작성할 때, 다른 파일에 정의된 모듈의 포트가 어떻게 정의되어 있나?</li>
+<li>에러 없이 코드 작성을 위해, 모듈 정의를 계속해서 참조, 정확하게 입력 필요</li>
+<li>이 작업도 수동 반복 작업 -&gt; 불편, 실수</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-marpit-fragments="6" data-paginate="true" data-theme="gaia" data-marpit-pagination="10" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-theme="gaia" data-marpit-pagination="10" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>문제: 열악한 HW 코딩 환경 (4/4)</h2>
 <ul>
-<li data-marpit-fragment="1">세 번째는 코드의 에러가 뒤늦게 검출된다는 것</li>
-<li data-marpit-fragment="2">현재는 코드 작성과 별개로 에러 검출이 이루어짐</li>
-<li data-marpit-fragment="3">코딩이 끝난 후 한참 뒤에 에러 검출 -&gt; 개발자가 그 코드가 어떤 것인지 파악</li>
-<li data-marpit-fragment="4">이것이 context switching에 해당 -&gt; 연구에 따르면 평균 25분</li>
-<li data-marpit-fragment="5">또한, 문제가 된 부분과 연관되어 있는 코드까지 수정</li>
-<li data-marpit-fragment="6">-&gt; 에러 검출이 늦으면 늦을수록 수정해야 하는 코드량 많아짐</li>
+<li>세 번째는 코드의 에러가 뒤늦게 검출된다는 것</li>
+<li>현재는 코드 작성과 별개로 에러 검출이 이루어짐</li>
+<li>코딩이 끝난 후 한참 뒤에 에러 검출 -&gt; 개발자가 그 코드가 어떤 것인지 파악</li>
+<li>이것이 context switching에 해당 -&gt; 연구에 따르면 평균 25분</li>
+<li>또한, 문제가 된 부분과 연관되어 있는 코드까지 수정</li>
+<li>-&gt; 에러 검출이 늦으면 늦을수록 수정해야 하는 코드량 많아짐</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-marpit-fragments="6" data-paginate="true" data-theme="gaia" data-marpit-pagination="11" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-theme="gaia" data-marpit-pagination="11" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>문제: 현대적인 SW 코딩 환경 (1/3)</h2>
 <ul>
-<li data-marpit-fragment="1">현대적인 SW 코딩 환경에서는 문제 해결을 어떻게 하는지</li>
-<li data-marpit-fragment="2">먼저, 코드를 읽는데 텍스트 에디터가 도움을 줍니다.
+<li>현대적인 SW 코딩 환경에서는 문제 해결을 어떻게 하는지</li>
+<li>먼저, 코드를 읽는데 텍스트 에디터가 도움을 줍니다.
 <ul>
-<li data-marpit-fragment="3">에디터가 코드의 문법을 이해하기 때문에,</li>
-<li data-marpit-fragment="4">사람이 따로 심볼 정의를 찾지 않아도</li>
-<li data-marpit-fragment="5">-&gt; 현재 커서가 놓은 곳의 심볼 정의를 바로 보여줌</li>
-<li data-marpit-fragment="6">개발자가 원하면, 정의가 있는 위치로 바로 이동</li>
+<li>에디터가 코드의 문법을 이해하기 때문에,</li>
+<li>사람이 따로 심볼 정의를 찾지 않아도</li>
+<li>-&gt; 현재 커서가 놓은 곳의 심볼 정의를 바로 보여줌</li>
+<li>개발자가 원하면, 정의가 있는 위치로 바로 이동</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-marpit-fragments="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="12" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-paginate="true" data-theme="gaia" data-marpit-pagination="12" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>문제: 현대적인 SW 코딩 환경 (2/3)</h2>
 <ul>
-<li data-marpit-fragment="1">두 번째로 코드를 작성하는데 도움을 줍니다.</li>
-<li data-marpit-fragment="2">에디터가 코드의 문맥을 이해하기 때문에,</li>
-<li data-marpit-fragment="3">개발자가 현재 입력하는 시작 문자를 보고 -&gt; 문맥에 맞게 들어갈 수 있는 심볼을 모두 보여줌</li>
-<li data-marpit-fragment="4">사용자는 심볼 전체를 입력하지 않고 -&gt; 보여주는 심볼을 선택 -&gt; 입력을 마침</li>
-<li data-marpit-fragment="5">개발자의 불편함, 실수를 같이 줄여줌</li>
+<li>두 번째로 코드를 작성하는데 도움을 줍니다.</li>
+<li>에디터가 코드의 문맥을 이해하기 때문에,</li>
+<li>개발자가 현재 입력하는 시작 문자를 보고 -&gt; 문맥에 맞게 들어갈 수 있는 심볼을 모두 보여줌</li>
+<li>사용자는 심볼 전체를 입력하지 않고 -&gt; 보여주는 심볼을 선택 -&gt; 입력을 마침</li>
+<li>개발자의 불편함, 실수를 같이 줄여줌</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-marpit-fragments="6" data-paginate="true" data-theme="gaia" data-marpit-pagination="13" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-theme="gaia" data-marpit-pagination="13" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>문제: 현대적인 SW 코딩 환경 (3/3)</h2>
 <ul>
-<li data-marpit-fragment="1">세 번째로 코드의 에러를 실시간으로 검출해 줍니다.</li>
-<li data-marpit-fragment="2">에디터가 문법을 이해하기 때문에, -&gt; 사용자가 잘못 입력한 코드를 바로 바로 지적</li>
-<li data-marpit-fragment="3">문제가 있는 코드 부분은 빨간 밑줄로 표시 -&gt; 개발자가 잘 알아볼 수 있게 해줌</li>
-<li data-marpit-fragment="4">코드의 에러를 바로 확인하고 수정 -&gt; 불필요한 context switching 방지</li>
-<li data-marpit-fragment="5">코드 수정에 드는 시간과 비용을 줄여줌</li>
-<li data-marpit-fragment="6">이 모든 기능을 하나의 통합 편집 환경에서 제공해 줌</li>
+<li>세 번째로 코드의 에러를 실시간으로 검출해 줍니다.</li>
+<li>에디터가 문법을 이해하기 때문에, -&gt; 사용자가 잘못 입력한 코드를 바로 바로 지적</li>
+<li>문제가 있는 코드 부분은 빨간 밑줄로 표시 -&gt; 개발자가 잘 알아볼 수 있게 해줌</li>
+<li>코드의 에러를 바로 확인하고 수정 -&gt; 불필요한 context switching 방지</li>
+<li>코드 수정에 드는 시간과 비용을 줄여줌</li>
+<li>이 모든 기능을 하나의 통합 편집 환경에서 제공해 줌</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-marpit-fragments="3" data-paginate="true" data-theme="gaia" data-marpit-pagination="14" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-paginate="true" data-theme="gaia" data-marpit-pagination="14" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>현대적인 SW 코딩 환경</h2>
 <ul>
-<li data-marpit-fragment="1">이런 기능들은 -&gt; 문법에 맞게 코드를 분석하는 “언어 분석 서비스”에 의존</li>
-<li data-marpit-fragment="2">심볼, 모듈들의 위치, 컨텍스트 파악 등이 필요하기 때문.</li>
-<li data-marpit-fragment="3">따라서, “언어 분석 서비스” 없이는 편의 기능을 제공할 수 없게 됨</li>
+<li>이런 기능들은 -&gt; 문법에 맞게 코드를 분석하는 “언어 분석 서비스”에 의존</li>
+<li>심볼, 모듈들의 위치, 컨텍스트 파악 등이 필요하기 때문.</li>
+<li>따라서, “언어 분석 서비스” 없이는 편의 기능을 제공할 수 없게 됨</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-marpit-fragments="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="15" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-paginate="true" data-theme="gaia" data-marpit-pagination="15" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>SW 코딩 환경 적용 문제 (1/2)</h2>
 <ul>
-<li data-marpit-fragment="1">개발자에게 편리한 기능을 HW 코딩 환경에 도입하면 좋을 텐데</li>
-<li data-marpit-fragment="2">HW 코딩 환경에 SW 코딩 환경에 제공되는 편의 기능을 제공하려고 보니
+<li>개발자에게 편리한 기능을 HW 코딩 환경에 도입하면 좋을 텐데</li>
+<li>HW 코딩 환경에 SW 코딩 환경에 제공되는 편의 기능을 제공하려고 보니
 <ul>
-<li data-marpit-fragment="3">-&gt; HW 코딩 환경은 언어 분석 서비스를 제공하는 기능이 없음</li>
+<li>-&gt; HW 코딩 환경은 언어 분석 서비스를 제공하는 기능이 없음</li>
 </ul>
 </li>
-<li data-marpit-fragment="4">폰 네비게이션을 오래된 차에 연결하려고 보니
+<li>폰 네비게이션을 오래된 차에 연결하려고 보니
 <ul>
-<li data-marpit-fragment="5">-&gt; 센터페시아에 스크린도 없고, USB 포트도 없는 상황이라 차에 연결이 불가능</li>
+<li>-&gt; 센터페시아에 스크린도 없고, USB 포트도 없는 상황이라 차에 연결이 불가능</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-marpit-fragments="6" data-paginate="true" data-theme="gaia" data-marpit-pagination="16" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-theme="gaia" data-marpit-pagination="16" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>SW 코딩 환경 적용 문제 (2/2)</h2>
 <ul>
-<li data-marpit-fragment="1">이미 이런 기능이 잘 갖춰진 SW 코딩 환경에 Verilog 분석 기능 제공하려고 보니,
+<li>이미 이런 기능이 잘 갖춰진 SW 코딩 환경에 Verilog 분석 기능 제공하려고 보니,
 <ul>
-<li data-marpit-fragment="2">HW 환경에서 SW 코딩 환경으로 이주하는 비용이 들고,</li>
-<li data-marpit-fragment="3">SW 코딩 환경으로 이주했다고 하더라도, Verilog 언어를 이해하지 못하는 문제</li>
+<li>HW 환경에서 SW 코딩 환경으로 이주하는 비용이 들고,</li>
+<li>SW 코딩 환경으로 이주했다고 하더라도, Verilog 언어를 이해하지 못하는 문제</li>
 </ul>
 </li>
-<li data-marpit-fragment="4">마치, 신 기능을 쓰기 위해, 새차를 뽑는 것과 비슷한 상황</li>
-<li data-marpit-fragment="5">새차를 뽑아서 차에 내장된 네비게이션을 사용하려고 보니,
+<li>마치, 신 기능을 쓰기 위해, 새차를 뽑는 것과 비슷한 상황</li>
+<li>새차를 뽑아서 차에 내장된 네비게이션을 사용하려고 보니,
 <ul>
-<li data-marpit-fragment="6">미국 지도만 있고 국내 지도는 없어서 무용지물</li>
+<li>미국 지도만 있고 국내 지도는 없어서 무용지물</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-marpit-fragments="4" data-paginate="true" data-theme="gaia" data-marpit-pagination="17" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-paginate="true" data-theme="gaia" data-marpit-pagination="17" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>해결 방안: Verilog 언어 분석 서비스 개발 (1/2)</h2>
 <ul>
-<li data-marpit-fragment="1">문제점 해결하기 위해, “Verilog Language Server 개발” 필요</li>
-<li data-marpit-fragment="2">Language Server는 흔히 말하는 24시간 대기하는 서버 아님 -&gt; Service provider를 의미</li>
-<li data-marpit-fragment="3">텍스트 익스텐션 형태로 제공
+<li>문제점 해결하기 위해, “Verilog Language Server 개발” 필요</li>
+<li>Language Server는 흔히 말하는 24시간 대기하는 서버 아님 -&gt; Service provider를 의미</li>
+<li>텍스트 익스텐션 형태로 제공
 <ul>
-<li data-marpit-fragment="4">-&gt; Editor에 입력된 코드 분석 -&gt; 문맥에 맞는 정보 제공하는 역할</li>
+<li>-&gt; Editor에 입력된 코드 분석 -&gt; 문맥에 맞는 정보 제공하는 역할</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-marpit-fragments="3" data-paginate="true" data-theme="gaia" data-marpit-pagination="18" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-theme="gaia" data-marpit-pagination="18" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>해결 방안: Verilog 언어 분석 서비스 개발 (2/2)</h2>
 <ul>
-<li data-marpit-fragment="1">SW 코딩 환경으로 이주를 원하는 개발자와 그렇지 않은 개발자</li>
-<li data-marpit-fragment="2">HW, SW 코딩 환경용으로 Verilog Language server를 개발하면 좋을 것</li>
-<li data-marpit-fragment="3">-&gt; 중복 개발 문제가 불거짐</li>
+<li>SW 코딩 환경으로 이주를 원하는 개발자와 그렇지 않은 개발자</li>
+<li>HW, SW 코딩 환경용으로 Verilog Language server를 개발하면 좋을 것</li>
+<li>-&gt; 중복 개발 문제가 불거짐</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-marpit-fragments="3" data-paginate="true" data-theme="gaia" data-marpit-pagination="19" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-theme="gaia" data-marpit-pagination="19" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>해결 방안: 중복 개발 문제 해결</h2>
 <ul>
-<li data-marpit-fragment="1">중복 개발 문제 해결을 위해 -&gt; Microsoft사가 제정한 표준 프로토콜인 Language Server Prototol, 줄여서 LSP를 지원하는 VLS를 개발할 것을 제안</li>
-<li data-marpit-fragment="2">LSP를 이용하면 하나의 LS 프로그램으로 여러 텍스트 에디터에
+<li>중복 개발 문제 해결을 위해 -&gt; Microsoft사가 제정한 표준 프로토콜인 Language Server Prototol, 줄여서 LSP를 지원하는 VLS를 개발할 것을 제안</li>
+<li>LSP를 이용하면 하나의 LS 프로그램으로 여러 텍스트 에디터에
 <ul>
-<li data-marpit-fragment="3">-&gt; Verilog 언어 분석 서비스를 제공</li>
+<li>-&gt; Verilog 언어 분석 서비스를 제공</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-marpit-fragments="7" data-paginate="true" data-theme="gaia" data-marpit-pagination="20" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-paginate="true" data-theme="gaia" data-marpit-pagination="20" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>해결 방안: SW 구조 (산출물)</h2>
 <ul>
-<li data-marpit-fragment="1">개발하려는 프로그램의 구조 -&gt; 각 부분은 과제의 산출물</li>
-<li data-marpit-fragment="2">각 에디터마다 Extension 개발
+<li>개발하려는 프로그램의 구조 -&gt; 각 부분은 과제의 산출물</li>
+<li>각 에디터마다 Extension 개발
 <ul>
-<li data-marpit-fragment="3">에디터와 LS 간의 인터페이스를 담당하는 “Thin Layer”</li>
+<li>에디터와 LS 간의 인터페이스를 담당하는 “Thin Layer”</li>
 </ul>
 </li>
-<li data-marpit-fragment="4">LS는 공용으로 사용되기 때문에 하나만 개발</li>
-<li data-marpit-fragment="5">LS 내부는 두 Layer로 이루어져 있는데,
+<li>LS는 공용으로 사용되기 때문에 하나만 개발</li>
+<li>LS 내부는 두 Layer로 이루어져 있는데,
 <ul>
-<li data-marpit-fragment="6">LSP를 따르는 서버 부분</li>
-<li data-marpit-fragment="7">Code를 분석하는 parser 부분으로 나뉨</li>
+<li>LSP를 따르는 서버 부분</li>
+<li>Code를 분석하는 parser 부분으로 나뉨</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-marpit-fragments="8" data-paginate="true" data-theme="gaia" data-marpit-pagination="21" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-paginate="true" data-theme="gaia" data-marpit-pagination="21" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>기술 확보</h2>
 <ul>
-<li data-marpit-fragment="1">LS 개발을 위해 여러 가지 기술들이 동원되어야 함</li>
-<li data-marpit-fragment="2">이 과제 제안 전에 미리 연구를 진행</li>
-<li data-marpit-fragment="3">다른 업무를 위해 2종의 editor extension 개발 경험</li>
-<li data-marpit-fragment="4">LS 개발 기술 습득을 위해 -&gt; 기초적인 언어 정의
+<li>LS 개발을 위해 여러 가지 기술들이 동원되어야 함</li>
+<li>이 과제 제안 전에 미리 연구를 진행</li>
+<li>다른 업무를 위해 2종의 editor extension 개발 경험</li>
+<li>LS 개발 기술 습득을 위해 -&gt; 기초적인 언어 정의
 <ul>
-<li data-marpit-fragment="5">-&gt; 그 언어를 위한 LS를 “개인 프로젝트”로 개발</li>
+<li>-&gt; 그 언어를 위한 LS를 “개인 프로젝트”로 개발</li>
 </ul>
 </li>
-<li data-marpit-fragment="6">이 과제에서 사용하지 않는 다른 툴을 이용
+<li>이 과제에서 사용하지 않는 다른 툴을 이용
 <ul>
-<li data-marpit-fragment="7">-&gt; Verilog 문법을 해석사는 parser를 “개인 프로젝트”로 개발</li>
+<li>-&gt; Verilog 문법을 해석사는 parser를 “개인 프로젝트”로 개발</li>
 </ul>
 </li>
-<li data-marpit-fragment="8">과제 수행을 위해 필요한 기술은 “이미” 확보된 상태</li>
+<li>과제 수행을 위해 필요한 기술은 “이미” 확보된 상태</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-marpit-fragments="6" data-paginate="true" data-theme="gaia" data-marpit-pagination="22" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-paginate="true" data-theme="gaia" data-marpit-pagination="22" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>고객 가치 (1/2)</h2>
 <ul>
-<li data-marpit-fragment="1">과제로 얻을 수 있는 가치</li>
-<li data-marpit-fragment="2">다른 제품과의 차별점에 대해 설명</li>
-<li data-marpit-fragment="3">대안 제품 보다 높은 성능을 제공</li>
-<li data-marpit-fragment="4">
+<li>과제로 얻을 수 있는 가치</li>
+<li>다른 제품과의 차별점에 대해 설명</li>
+<li>대안 제품 보다 높은 성능을 제공</li>
+<li>
 <ul>
 <li>회사 인프라나 workflow와 연동 -&gt; 차별화</li>
 </ul>
 </li>
-<li data-marpit-fragment="5">VWP -&gt; 폐쇄망 -&gt; 설치 어려움
+<li>VWP -&gt; 폐쇄망 -&gt; 설치 어려움
 <ul>
-<li data-marpit-fragment="6">-&gt; 설치된 상태로 공급 -&gt; 설치 과정 없이 바로 실행</li>
+<li>-&gt; 설치된 상태로 공급 -&gt; 설치 과정 없이 바로 실행</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-marpit-fragments="4" data-paginate="true" data-theme="gaia" data-marpit-pagination="23" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-paginate="true" data-theme="gaia" data-marpit-pagination="23" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>고객 가치 (2/2)</h2>
 <ul>
-<li data-marpit-fragment="1">Verilog Code에 문제가 없는지 확인하는</li>
-<li data-marpit-fragment="2">기존부터 사용해 오는 체커 프로그램들 -&gt; sign-off tools</li>
-<li data-marpit-fragment="3">이 툴들을 지금처럼 외부에서 실행하는 것이 아니라 -&gt; 에디터에서 바로 실행</li>
-<li data-marpit-fragment="4">-&gt; 결과를 code line에 바로 표시하는 기능 제공</li>
+<li>Verilog Code에 문제가 없는지 확인하는</li>
+<li>기존부터 사용해 오는 체커 프로그램들 -&gt; sign-off tools</li>
+<li>이 툴들을 지금처럼 외부에서 실행하는 것이 아니라 -&gt; 에디터에서 바로 실행</li>
+<li>-&gt; 결과를 code line에 바로 표시하는 기능 제공</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="24" data-marpit-fragments="4" data-paginate="true" data-theme="gaia" data-marpit-pagination="24" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="24" data-paginate="true" data-theme="gaia" data-marpit-pagination="24" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>고객 가치: 기대 효과</h2>
 <ul>
-<li data-marpit-fragment="1">과제가 완료되면 Verilog coding할 때 불필요하게 낭비되는 시간을 줄임</li>
-<li data-marpit-fragment="2">추정 -&gt; 개발자 한 명 당 낭비되는 시간을 30분이라고 가정</li>
-<li data-marpit-fragment="3">-&gt; 연간 108억원을 절약</li>
-<li data-marpit-fragment="4">과제 참여 인원이 4명, 별 다른 장비 비용 없음 -&gt; 이 비용을 고스란히 절약</li>
+<li>과제가 완료되면 Verilog coding할 때 불필요하게 낭비되는 시간을 줄임</li>
+<li>추정 -&gt; 개발자 한 명 당 낭비되는 시간을 30분이라고 가정</li>
+<li>-&gt; 연간 108억원을 절약</li>
+<li>과제 참여 인원이 4명, 별 다른 장비 비용 없음 -&gt; 이 비용을 고스란히 절약</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="25" data-marpit-fragments="7" data-paginate="true" data-theme="gaia" data-marpit-pagination="25" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="25" data-paginate="true" data-theme="gaia" data-marpit-pagination="25" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>팀</h2>
 <ul>
-<li data-marpit-fragment="1">융합형 멤버 구성
+<li>융합형 멤버 구성
 <ul>
-<li data-marpit-fragment="2">SW 개발 능력과 함께 HW 개발도 알아야 함</li>
-<li data-marpit-fragment="3">팀원 소속도 3개 사엉부에 골고루 분포</li>
-<li data-marpit-fragment="4">-&gt; 각 사업부의 현황을 바로 알 수 있음</li>
+<li>SW 개발 능력과 함께 HW 개발도 알아야 함</li>
+<li>팀원 소속도 3개 사엉부에 골고루 분포</li>
+<li>-&gt; 각 사업부의 현황을 바로 알 수 있음</li>
 </ul>
 </li>
-<li data-marpit-fragment="5">과제를 위해 필요한 기술 습득을 이미 마쳤습니다.</li>
-<li data-marpit-fragment="6">활주로에서 이륙을 기다리는 비행기에 비유하면
+<li>과제를 위해 필요한 기술 습득을 이미 마쳤습니다.</li>
+<li>활주로에서 이륙을 기다리는 비행기에 비유하면
 <ul>
-<li data-marpit-fragment="7">체크리스트는 완료 -&gt; 관제탑으로부터 “이륙 허가”만 떨어지면 비상할 수 있게 준비되어 있다</li>
+<li>체크리스트는 완료 -&gt; 관제탑으로부터 “이륙 허가”만 떨어지면 비상할 수 있게 준비되어 있다</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-marpit-fragments="4" data-paginate="true" data-theme="gaia" data-marpit-pagination="26" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-paginate="true" data-theme="gaia" data-marpit-pagination="26" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>요약 (1/4)</h2>
 <ul>
-<li data-marpit-fragment="1">오늘 말씀 드린 내용을 간략히 요약하자면,</li>
-<li data-marpit-fragment="2">Digital hardware logic은 Verilog coding을 통해 설계되는데,</li>
-<li data-marpit-fragment="3">Verilog 코딩 환경이 SW 코딩 환경에 비해 매우 열악
+<li>오늘 말씀 드린 내용을 간략히 요약하자면,</li>
+<li>Digital hardware logic은 Verilog coding을 통해 설계되는데,</li>
+<li>Verilog 코딩 환경이 SW 코딩 환경에 비해 매우 열악
 <ul>
-<li data-marpit-fragment="4">3천 여 명이나 되는 DS 부문 Verilog 사용자들의 시간을 낭비</li>
+<li>3천 여 명이나 되는 DS 부문 Verilog 사용자들의 시간을 낭비</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27" data-marpit-fragments="4" data-paginate="true" data-theme="gaia" data-marpit-pagination="27" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27" data-paginate="true" data-theme="gaia" data-marpit-pagination="27" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>요약 (2/4)</h2>
 <ul>
-<li data-marpit-fragment="1">VLS 개발을 통해, HW coding 환경에도 언어 분석을 통해 제공되는 편리한 기능들을 제공할 것을 제안
+<li>VLS 개발을 통해, HW coding 환경에도 언어 분석을 통해 제공되는 편리한 기능들을 제공할 것을 제안
 <ul>
-<li data-marpit-fragment="2">표준 LSP를 통해 하나의 LS 개발</li>
-<li data-marpit-fragment="3">-&gt; HW/SW editor 환경 모두 지원</li>
-<li data-marpit-fragment="4">-&gt; 개발을 위해 필요한 기술은 이미 모두 확보한 상태</li>
+<li>표준 LSP를 통해 하나의 LS 개발</li>
+<li>-&gt; HW/SW editor 환경 모두 지원</li>
+<li>-&gt; 개발을 위해 필요한 기술은 이미 모두 확보한 상태</li>
 </ul>
 </li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-marpit-fragments="3" data-paginate="true" data-theme="gaia" data-marpit-pagination="28" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-paginate="true" data-theme="gaia" data-marpit-pagination="28" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>요약 (3/4)</h2>
 <ul>
-<li data-marpit-fragment="1">이 과제 개발을 통해 -&gt; man-power 절약
+<li>이 과제 개발을 통해 -&gt; man-power 절약
 <ul>
-<li data-marpit-fragment="2">사업부 workflow 지원으로 다른 대안과 차별화를 이루고자 합니다.</li>
+<li>사업부 workflow 지원으로 다른 대안과 차별화를 이루고자 합니다.</li>
 </ul>
 </li>
-<li data-marpit-fragment="3">과제 개발을 위해 HW/SW 개발 경험이 있는 3개 사업부에 소속된 멤버들이 뭉쳐서 “융합형 팀”을 구성 -&gt; 과제 선정을 기다리고 있습니다.</li>
+<li>과제 개발을 위해 HW/SW 개발 경험이 있는 3개 사업부에 소속된 멤버들이 뭉쳐서 “융합형 팀”을 구성 -&gt; 과제 선정을 기다리고 있습니다.</li>
 </ul>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-marpit-fragments="5" data-paginate="true" data-theme="gaia" data-marpit-pagination="29" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-paginate="true" data-theme="gaia" data-marpit-pagination="29" data-marpit-pagination-total="29" style="--paginate:true;--theme:gaia;">
 <h2>요약 (4/4)</h2>
 <ul>
-<li data-marpit-fragment="1">저희의 미션은 “Verilog Coding, Redefined”입니다.
+<li>저희의 미션은 “Verilog Coding, Redefined”입니다.
 <ul>
-<li data-marpit-fragment="2">이 과제를 통해 지도로 길을 찾던 과거</li>
-<li data-marpit-fragment="3">-&gt; 네비게이션을 사용하게 된 현재의 변화와 같이</li>
-<li data-marpit-fragment="4">-&gt; Verilog 코딩 환경도 “현대적”으로 “혁신”하고자 합니다.</li>
+<li>이 과제를 통해 지도로 길을 찾던 과거</li>
+<li>-&gt; 네비게이션을 사용하게 된 현재의 변화와 같이</li>
+<li>-&gt; Verilog 코딩 환경도 “현대적”으로 “혁신”하고자 합니다.</li>
 </ul>
 </li>
-<li data-marpit-fragment="5">제가 준비한 내용은 여기까지이고, 지금까지 들어주셔서 감사합니다.</li>
+<li>제가 준비한 내용은 여기까지이고, 지금까지 들어주셔서 감사합니다.</li>
 </ul>
 </section>
 <script>!function(){"use strict";const t="marpitSVGPolyfill:setZoomFactor,",e=Symbol();let r,o;function n(n){const i="object"==typeof n&&n.target||document,a="object"==typeof n?n.zoom:n;window[e]||(Object.defineProperty(window,e,{configurable:!0,value:!0}),window.addEventListener("message",(({data:e,origin:r})=>{if(r===window.origin)try{if(e&&"string"==typeof e&&e.startsWith(t)){const[,t]=e.split(","),r=Number.parseFloat(t);Number.isNaN(r)||(o=r)}}catch(t){console.error(t)}})));let l=!1;Array.from(i.querySelectorAll("svg[data-marpit-svg]"),(t=>{var e,n,i,s;t.style.transform||(t.style.transform="translateZ(0)");const c=a||o||t.currentScale||1;r!==c&&(r=c,l=c);const d=t.getBoundingClientRect(),{length:u}=t.children;for(let r=0;r<u;r+=1){const o=t.children[r],a=o.getScreenCTM();if(a){const t=null!==(n=null===(e=o.x)||void 0===e?void 0:e.baseVal.value)&&void 0!==n?n:0,r=null!==(s=null===(i=o.y)||void 0===i?void 0:i.baseVal.value)&&void 0!==s?s:0,l=o.firstElementChild,{style:u}=l;u.transformOrigin||(u.transformOrigin=`${-t}px ${-r}px`),u.transform=`scale(${c}) matrix(${a.a}, ${a.b}, ${a.c}, ${a.d}, ${a.e-d.left}, ${a.f-d.top}) translateZ(0.0001px)`}}})),!1!==l&&Array.from(i.querySelectorAll("iframe"),(({contentWindow:e})=>{null==e||e.postMessage(`${t}${l}`,"null"===window.origin?"*":window.origin)}))}r=1,o=void 0;const i=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};function a({once:t=!1,target:e=document}={}){const r="Apple Computer, Inc."===navigator.vendor?[n]:[];let o=!t;const a=()=>{for(const t of r)t({target:e});!function(t=document){Array.from(t.querySelectorAll('svg[data-marp-fitting="svg"]'),(t=>{var e;const r=t.firstChild,o=r.firstChild,{scrollWidth:n,scrollHeight:a}=o;let l,s=1;if(t.hasAttribute("data-marp-fitting-code")&&(l=null===(e=t.parentElement)||void 0===e?void 0:e.parentElement),t.hasAttribute("data-marp-fitting-math")&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft||"0")-parseFloat(t.paddingRight||"0"));e&&(s=e)}const c=Math.max(n,s),d=Math.max(a,1),u=`0 0 ${c} ${d}`;i(r,"width",`${c}`),i(r,"height",`${d}`),i(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),i(t,"viewBox",u)&&t.classList.toggle("__reflow__")}))}(e),o&&window.requestAnimationFrame(a)};return a(),()=>{o=!1}}const l=Symbol(),s=document.currentScript;((t=document)=>{if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");if(t[l])return t[l];const e=a({target:t}),r=()=>{e(),delete t[l]};Object.defineProperty(t,l,{configurable:!0,value:r})})(s?s.getRootNode():document)}();
